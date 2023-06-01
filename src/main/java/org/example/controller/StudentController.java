@@ -63,4 +63,13 @@ public class StudentController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/findByAge")
+    public ResponseEntity<List<Student>> findByAge(@RequestParam("age") String age){
+        List<Student> list = (List<Student>) studentService.findStudentMoreAge(age);
+        if (list.isEmpty()){
+            return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else{
+            return new ResponseEntity<>(list,HttpStatus.OK);
+        }
+    }
 }

@@ -31,4 +31,9 @@ public class StudentService implements IStudentService{
     public void delete(Long id) {
         studentDao.deleteById(id);
     }
+
+    @Override
+    public Iterable<Student> findStudentMoreAge(String age) {
+        return studentDao.findStudentMoreAge(age);
+    }
 }
